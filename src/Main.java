@@ -1,27 +1,44 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
+
         System.out.println("Welcome to Palindrome Checker App");
         System.out.println("Palindrome version 2.0");
-    }
-    Scanner sc = new Scanner(System.in);
 
-       System.out.print("Enter a word: ");
-    String input = sc.nextLine();
+        Scanner sc = new Scanner(System.in);
 
-    String reversed = "";
+        System.out.print("Enter a word or number: ");
+        String input = sc.nextLine();
 
-        for (int i = input.length() - 1; i >= 0; i--) {
-        reversed += input.charAt(i);
-    }
+        // Convert to lowercase and remove special characters
+        input = input.toLowerCase().replaceAll("[^a-zA-Z0-9]", "");
 
-        if (input.equals(reversed)) {
-        System.out.println("It is a Palindrome!");
-    } else {
-        System.out.println("Not a Palindrome.");
-    }
+        // Convert string to character array
+        char[] arr = input.toCharArray();
+
+        boolean isPalindrome = true;
+
+        int left = 0;
+        int right = arr.length - 1;
+
+        // Compare characters from both ends
+        while (left < right) {
+            if (arr[left] != arr[right]) {
+                isPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
+        }
+
+        if (isPalindrome) {
+            System.out.println("✅ It is a Palindrome!");
+        } else {
+            System.out.println("❌ Not a Palindrome.");
+        }
 
         sc.close();
+    }
 }
-
