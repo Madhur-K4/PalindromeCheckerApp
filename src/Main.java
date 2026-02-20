@@ -7,21 +7,19 @@ public class Main {
     }
     Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter a word or number: ");
+       System.out.print("Enter a word: ");
     String input = sc.nextLine();
 
     String reversed = "";
-
 
         for (int i = input.length() - 1; i >= 0; i--) {
         reversed += input.charAt(i);
     }
 
-
-        if (input.equalsIgnoreCase(reversed)) {
-        System.out.println("✅ It is a Palindrome!");
+        if (input.equals(reversed)) {
+        System.out.println("It is a Palindrome!");
     } else {
-        System.out.println("❌ Not a Palindrome.");
+        System.out.println("Not a Palindrome.");
     }
 
         sc.close();
