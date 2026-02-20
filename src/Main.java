@@ -5,4 +5,25 @@ public class Main {
         System.out.println("Welcome to Palindrome Checker App");
         System.out.println("Palindrome version 2.0");
     }
+    Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter a word or number: ");
+    String input = sc.nextLine();
+
+    String reversed = "";
+
+
+        for (int i = input.length() - 1; i >= 0; i--) {
+        reversed += input.charAt(i);
+    }
+
+
+        if (input.equalsIgnoreCase(reversed)) {
+        System.out.println("✅ It is a Palindrome!");
+    } else {
+        System.out.println("❌ Not a Palindrome.");
+    }
+
+        sc.close();
 }
+
